@@ -1,0 +1,1 @@
+This project is meant to create a page where the end-user can pick css colours and make a list of favorite's.
