@@ -36,6 +36,7 @@ $(document).on('click', '#add-to-favorite', function () {
   addBox(colorInputValue) /* add a box with the input color */
 
   $('input').val('') /* reset value */
+  $('input').focus()
 })
 
 
