@@ -52,3 +52,14 @@ $(document).ready(function() {
   colorIdx = Math.floor( Math.random() * colors.length )
   setPreviewColor(colors[colorIdx])
 });
+
+/* Make the preview area change colour as you point the mouse at the favourite colours */
+$(document).on('mouseenter', '.item', function () {
+
+  // this variable to find the element that an event happened on
+   const itemColor = $(this).css('background-color')
+   setPreviewColor(itemColor)
+  })
+
+
+
