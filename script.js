@@ -1,4 +1,4 @@
-/* Exercise 2: Color picker */
+let colors = [ '22ac5e', 'd68236', 'ffa500'];
 
 function setPreviewColor (color){
   $('.preview').css('background-color', color)
@@ -8,12 +8,14 @@ function setPreviewColor (color){
 }
 
 
+
 // Handle user's event interaction 
 $(document).on('keydown keyup keypress', '#color', function () {
   const colorInputValue = $('input').val() /* $(this).val() */
   
   setPreviewColor(colorInputValue)
 })
+
 
 
 function addBox(color) {
@@ -31,12 +33,14 @@ $(document).on('click', '#add-to-favorite', function () {
 
 
 // Add some initial colours on page load.
-let colors = [ '22ac5e', 'd68236', 'ffa500'];
-
 $(document).ready(function() {
   // Code that runs when the document is ready
 
   colors.forEach(color => {
     addBox(color)
   })
+
+  /* Display random color on page load */
+  colorIdx = Math.floor( Math.random() * colors.length )
+  setPreviewColor(colors[colorIdx])
 });
