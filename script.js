@@ -1,7 +1,8 @@
-let colors = ['22ac5e', 'd68236', 'ffa500', 'b34de7', '#A62D4D', '#40111E', '#F29057', '#F26363', '#A62D4D', '#40111E', '#F29057', '#F26363', '#A62D4D', '#40111E', '#F29057', '#F26363'];
+let colors = ['22ac5e', 'd68236', 'ffa500', 'b34de7', '#A62D4D', '#40111E', '#F29057', '#F26363'];
 
 function setPreviewColor (color){
   $('.preview').css('background-color', color)
+  const previewColor = $('.preview').css('background-color')
 
   const colorText = $('.preview').css('background-color')
   $('.color-code').text(colorText)
@@ -53,13 +54,21 @@ $(document).ready(function() {
   setPreviewColor(colors[colorIdx])
 });
 
+
+let previewColor;
+
 /* Make the preview area change colour as you point the mouse at the favourite colours */
 $(document).on('mouseenter', '.item', function () {
+   previewColor = $('.preview').css('background-color')
 
-  // this variable to find the element that an event happened on
    const itemColor = $(this).css('background-color')
    setPreviewColor(itemColor)
-  })
+  }).on('mouseleave', '.item', function () {
+    setPreviewColor(previewColor)
+   })
+
+
+  
 
 
 
