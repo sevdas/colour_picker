@@ -1,4 +1,4 @@
-let colors = [ '22ac5e', 'd68236', 'ffa500'];
+let colors = ['22ac5e', 'd68236', 'ffa500', 'b34de7', '#A62D4D', '#40111E', '#F29057', '#F26363', '#A62D4D', '#40111E', '#F29057', '#F26363', '#A62D4D', '#40111E', '#F29057', '#F26363'];
 
 function setPreviewColor (color){
   $('.preview').css('background-color', color)
@@ -26,6 +26,13 @@ function addBox(color) {
 // Handle user's event interaction on click
 $(document).on('click', '#add-to-favorite', function () {
   const colorInputValue = $('input').val() /* retrieve value from the color field */
+  const colorItems = $("#colors .item")
+
+  // Limit the number of colours to 16.
+  if (colorItems.length >=16) {
+    colorItems.last().remove()
+    console.warn('Last item has been removed')
+  }
   addBox(colorInputValue) /* add a box with the input color */
 
   $('input').val('') /* reset value */
